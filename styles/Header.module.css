@@ -82,24 +82,20 @@
     cursor: pointer;
 }
 
+.hamburger.scrolled .bar {
+    background-color: var(--color-gray);
+}
+
 .bar {
     width: 25px;
     height: 3px;
-    background-color: #3c3c3c;
+    background-color: var(--color-white);
     margin: 4px 0;
     transition: 0.4s;
 }
 
-.bar1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.bar2 {
-    opacity: 0;
-}
-
-.bar3 {
-    transform: rotate(45deg) translate(-5px, -6px);
+.bar.scrolled {
+    background-color: var(--color-gray);
 }
 
 /* Responsive styles */
@@ -108,7 +104,7 @@
         display: none;
         flex-direction: column;
         width: 100%;
-        background-color: #ffffff;
+        background-color: var(--color-gray);
         position: absolute;
         top: 100%;
         left: 0;
@@ -117,11 +113,18 @@
 
     .nav.open {
         display: flex;
+        background-color: var(--color-gray);
+    }
+
+    .nav.open_scrolled {
+        display: flex;
+        background-color: var(--color-white);
     }
 
     .navList {
         flex-direction: column;
         width: 100%;
+        color: var(--color-white);
     }
 
     .navList li {

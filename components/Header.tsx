@@ -40,7 +40,7 @@ const Header: React.FC = () => {
                 <img src="/page_icon_without_bg.png" alt="Logo" className={styles.logoImage} />
                 <span className={`${styles.logoText} ${scrolled ? styles.scrolled : ''}`}>Maria Noronha</span>
             </div>
-            <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
+            <nav className={`${styles.nav} ${menuOpen ? scrolled ? styles.open_scrolled : styles.open : ''}`}>
                 <ul className={`${styles.navList} ${scrolled ? styles.scrolled : ''}`}>
                     {['home', 'about', 'experience', 'portfolio', 'blog', 'contact'].map((section) => (
                         <li key={section}>
@@ -55,10 +55,10 @@ const Header: React.FC = () => {
                     ))}
                 </ul>
             </nav>
-            <div className={styles.hamburger} onClick={toggleMenu}>
-                <div className={styles.bar}></div>
-                <div className={styles.bar}></div>
-                <div className={styles.bar}></div>
+            <div className={`${styles.hamburger} ${scrolled ? styles.scrolled : ''}`} onClick={toggleMenu}>
+                <div className={`${styles.bar} ${scrolled ? styles.scrolled : ''}`}></div>
+                <div className={`${styles.bar} ${scrolled ? styles.scrolled : ''}`}></div>
+                <div className={`${styles.bar} ${scrolled ? styles.scrolled : ''}`}></div>
             </div>
         </header>
     );
