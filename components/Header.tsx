@@ -4,6 +4,7 @@ import styles from '../styles/Header.module.css';
 const Header: React.FC = () => {
     const [activeSection, setActiveSection] = useState<string>('');
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
+    const [scrolled, setScrolled] = useState<boolean>(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -17,6 +18,12 @@ const Header: React.FC = () => {
                     break;
                 }
             }
+
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -28,13 +35,13 @@ const Header: React.FC = () => {
     };
 
     return (
-        <header className={styles.header}>
-            <a href="#home" className={styles.logo}>
-                <img src="/page_icon.jpg" alt="Logo" className={styles.logoImage} />
-                <span className={styles.logoText}>Maria Noronha</span>
-            </a>
+        <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+            <div className={styles.logo}>
+                <img src="/page_icon_without_bg.png" alt="Logo" className={styles.logoImage} />
+                <span className={`${styles.logoText} ${scrolled ? styles.scrolled : ''}`}>Maria Noronha</span>
+            </div>
             <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
-                <ul className={styles.navList}>
+                <ul className={`${styles.navList} ${scrolled ? styles.scrolled : ''}`}>
                     {['home', 'about', 'experience', 'portfolio', 'blog', 'contact'].map((section) => (
                         <li key={section}>
                             <a
@@ -49,9 +56,9 @@ const Header: React.FC = () => {
                 </ul>
             </nav>
             <div className={styles.hamburger} onClick={toggleMenu}>
-                <div className={`${styles.bar} ${menuOpen ? styles.bar1 : ''}`}></div>
-                <div className={`${styles.bar} ${menuOpen ? styles.bar2 : ''}`}></div>
-                <div className={`${styles.bar} ${menuOpen ? styles.bar3 : ''}`}></div>
+                <div className={styles.bar}></div>
+                <div className={styles.bar}></div>
+                <div className={styles.bar}></div>
             </div>
         </header>
     );

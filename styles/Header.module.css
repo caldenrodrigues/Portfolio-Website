@@ -5,10 +5,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-white);
+    background-color: var(--color-gray);
     padding: 0rem 2rem;
     z-index: 1000;
     box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.header.scrolled {
+    background-color: var(--color-white);
 }
 
 .logo {
@@ -25,11 +30,15 @@
 }
 
 .logoText {
-    color: var(--color-gray);
+    color: var(--color-white);
     font-size: 3.5rem;
     font-weight: 500;
     font-family: var(--font-secondary);
     line-height: 1;
+}
+
+.logoText.scrolled {
+    color: var(--color-gray);
 }
 
 .nav {
@@ -42,7 +51,12 @@
     display: flex;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box;
+    color: var(--color-white);
+}
+
+.navList.scrolled {
+    color: var(--color-gray);
 }
 
 .navList li {
@@ -50,7 +64,6 @@
 }
 
 .navList li a {
-    color: var(--color-gray);
     text-decoration: none;
     padding: 1rem;
     font-size: 1.2rem;

@@ -47,25 +47,23 @@
 }
 
 @keyframes rollIn {
-  0%{
-		top: -200px;
-		transform: rotateX(-90deg);
-	}
-	10%{
-		top: -74px;
-		transform: rotateX(0deg);
-		opacity: 1;
-	}
-	90%{
-		top: -74px;
-		transform: rotateX(0deg);
-		opacity: 1;
-	}
-	100%{
-		top: 50px;
-		transform: rotateX(30deg);
-		opacity: 0;
-	}
+  0% {
+    top: -200px;
+    transform: rotateX(-90deg);
+  }
+  10% {
+    top: -74px;
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  90% {
+    top: -74px;
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    top: 50px;
+  }
 }
 
 .socials {
@@ -101,4 +99,24 @@
   max-width: 100%;
   height: auto;
   border-radius: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .name {
+    font-size: 4rem;
+  }
+
+  .role {
+    font-size: 1.5rem;
+  }
+
+  .image {
+    display: none;
+  }
 }
