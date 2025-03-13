@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff;
+    background-color: var(--color-white);
     padding: 0rem 2rem;
     z-index: 1000;
     box-sizing: border-box;
@@ -13,7 +13,6 @@
 
 .logo {
     display: flex;
-    align-items: flex-end;
     align-items: baseline;
     margin-top: 0.5rem;
     text-decoration: none;
@@ -26,10 +25,11 @@
 }
 
 .logoText {
-    color: #3c3c3c;
+    color: var(--color-gray);
     font-size: 3.5rem;
     font-weight: 500;
     font-family: var(--font-secondary);
+    line-height: 1;
 }
 
 .nav {
@@ -50,7 +50,7 @@
 }
 
 .navList li a {
-    color: #3c3c3c;
+    color: var(--color-gray);
     text-decoration: none;
     padding: 1rem;
     font-size: 1.2rem;

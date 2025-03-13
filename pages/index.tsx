@@ -1,16 +1,14 @@
 import React from 'react';
 import Header from '../components/Header';
+import Home from '../components/Home';
 import styles from '../styles/Home.module.css';
 
-const Home: React.FC = () => {
+const Index: React.FC = () => {
     return (
         <div className={styles.container}>
             <Header />
             <main className={styles.main}>
-                <section id="home" className={styles.section}>
-                    <h1>Welcome to My Portfolio</h1>
-                    <p>This is a showcase of my work and projects.</p>
-                </section>
+                <Home />
                 <section id="about" className={styles.section}>
                     <h2>About</h2>
                     <p>Information about me.</p>
@@ -36,4 +34,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export default Index;

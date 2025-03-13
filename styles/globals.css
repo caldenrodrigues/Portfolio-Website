@@ -4,8 +4,8 @@
     --font-primary: 'Source Sans Pro', sans-serif;
     --font-secondary: 'Alex Brush', cursive;
     --color-white: #ffffff;
-    --color-text: #3c3c3c;
-    --color-active: #ea4342;
+    --color-gray: #3c3c3c;
+    --color-primary: #ea4342;
 }
 
 html,
@@ -13,9 +13,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: var(--font-primary);
-    line-height: 1.6;
     background-color: #f0f0f0;
-    color: var(--color-text);
+    color: var(--color-gray);
 }
 
 a {
@@ -36,12 +35,12 @@ h1, h2, h3, h4, h5, h6 {
 .header {
     background-color: var(--color-white);
     padding: 20px;
-    color: var(--color-text);
+    color: var(--color-gray);
 }
 
 .footer {
     text-align: center;
     padding: 20px;
     background-color: var(--color-white);
-    color: var(--color-text);
+    color: var(--color-gray);
 }
