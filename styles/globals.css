@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
 :root {
+    --font-primary: 'Source Sans Pro', sans-serif;
+    --font-secondary: 'Alex Brush', cursive;
     --color-white: #ffffff;
     --color-text: #3c3c3c;
     --color-active: #ea4342;
@@ -8,7 +12,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-family: var(--font-primary);
     line-height: 1.6;
     background-color: #f0f0f0;
     color: var(--color-text);

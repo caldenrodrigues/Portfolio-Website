@@ -3,6 +3,7 @@ import styles from '../styles/Header.module.css';
 
 const Header: React.FC = () => {
     const [activeSection, setActiveSection] = useState<string>('');
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,19 +23,24 @@ const Header: React.FC = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
     return (
         <header className={styles.header}>
-            <div className={styles.logo}>
+            <a href="#home" className={styles.logo}>
                 <img src="/page_icon.jpg" alt="Logo" className={styles.logoImage} />
                 <span className={styles.logoText}>Maria Noronha</span>
-            </div>
-            <nav>
+            </a>
+            <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
                 <ul className={styles.navList}>
                     {['home', 'about', 'experience', 'portfolio', 'blog', 'contact'].map((section) => (
                         <li key={section}>
                             <a
                                 href={`#${section}`}
                                 className={activeSection === section ? styles.activeNavLink : ''}
+                                onClick={() => setMenuOpen(false)}
                             >
                                 {section.charAt(0).toUpperCase() + section.slice(1)}
                             </a>
@@ -42,6 +48,11 @@ const Header: React.FC = () => {
                     ))}
                 </ul>
             </nav>
+            <div className={styles.hamburger} onClick={toggleMenu}>
+                <div className={`${styles.bar} ${menuOpen ? styles.bar1 : ''}`}></div>
+                <div className={`${styles.bar} ${menuOpen ? styles.bar2 : ''}`}></div>
+                <div className={`${styles.bar} ${menuOpen ? styles.bar3 : ''}`}></div>
+            </div>
         </header>
     );
 };
