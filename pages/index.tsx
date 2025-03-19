@@ -12,6 +12,7 @@ const Index: React.FC = () => {
                 <section id="about" className={styles.section}>
                     <h2>About</h2>
                     <p>Information about me.</p>
+                    <p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p>
                 </section>
                 <section id="experience" className={styles.section}>
                     <h2>Experience</h2>

@@ -34,13 +34,37 @@ const Header: React.FC = () => {
         setMenuOpen(!menuOpen);
     };
 
+    // Smooth scrolling for all internal links
+    useEffect(() => {
+        const handleLinkClick = (e: MouseEvent) => {
+            let target = e.target as HTMLElement;
+
+            // Traverse up the DOM tree to find the closest <a> tag
+            while (target && target.tagName !== 'A') {
+                target = target.parentElement as HTMLElement;
+            }
+
+            if (target && target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
+                e.preventDefault();
+                const sectionId = target.getAttribute('href')?.substring(1);
+                const section = document.getElementById(sectionId || '');
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        };
+
+        document.addEventListener('click', handleLinkClick);
+        return () => document.removeEventListener('click', handleLinkClick);
+    }, []);
+
     return (
         <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
-            <div className={styles.logo}>
+            <a href="#home" className={styles.logo}>
                 <img src="/page_icon_without_bg.png" alt="Logo" className={styles.logoImage} />
                 <span className={`${styles.logoText} ${scrolled ? styles.scrolled : ''}`}>Maria Noronha</span>
-            </div>
-            <nav className={`${styles.nav} ${menuOpen ? scrolled ? styles.open_scrolled : styles.open : ''}`}>
+            </a>
+            <nav className={`${styles.nav} ${menuOpen ? (scrolled ? styles.open_scrolled : styles.open) : ''}`}>
                 <ul className={`${styles.navList} ${scrolled ? styles.scrolled : ''}`}>
                     {['home', 'about', 'experience', 'portfolio', 'blog', 'contact'].map((section) => (
                         <li key={section}>
@@ -55,10 +79,10 @@ const Header: React.FC = () => {
                     ))}
                 </ul>
             </nav>
-            <div className={`${styles.hamburger} ${scrolled ? styles.scrolled : ''}`} onClick={toggleMenu}>
-                <div className={`${styles.bar} ${scrolled ? styles.scrolled : ''}`}></div>
-                <div className={`${styles.bar} ${scrolled ? styles.scrolled : ''}`}></div>
-                <div className={`${styles.bar} ${scrolled ? styles.scrolled : ''}`}></div>
+            <div className={`${styles.hamburger} ${menuOpen ? styles.open : ''} ${scrolled ? styles.scrolled : ''}`} onClick={toggleMenu}>
+                <div className={`${styles.bar} ${menuOpen ? styles.bar1 : ''} ${scrolled ? styles.scrolled : ''}`}></div>
+                <div className={`${styles.bar} ${menuOpen ? styles.bar2 : ''} ${scrolled ? styles.scrolled : ''}`}></div>
+                <div className={`${styles.bar} ${menuOpen ? styles.bar3 : ''} ${scrolled ? styles.scrolled : ''}`}></div>
             </div>
         </header>
     );

@@ -73,7 +73,7 @@
 
 .navList li a:hover,
 .navList li a.activeNavLink {
-    color: #ea4342;
+    color: var(--color-primary);
 }
 
 .hamburger {
@@ -96,6 +96,18 @@
 
 .bar.scrolled {
     background-color: var(--color-gray);
+}
+
+.hamburger.open .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.open .bar2 {
+    opacity: 0;
+}
+
+.hamburger.open .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Responsive styles */
