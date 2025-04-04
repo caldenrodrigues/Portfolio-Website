@@ -8,7 +8,7 @@ const Header: React.FC = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['home', 'about', 'experience', 'portfolio', 'blog', 'contact'];
+            const sections = ['home', 'about', 'portfolio', 'experience', 'blog', 'contact'];
             const scrollPosition = window.scrollY + 100;
 
             for (const section of sections) {
@@ -66,7 +66,7 @@ const Header: React.FC = () => {
             </a>
             <nav className={`${styles.nav} ${menuOpen ? (scrolled ? styles.open_scrolled : styles.open) : ''}`}>
                 <ul className={`${styles.navList} ${scrolled ? styles.scrolled : ''}`}>
-                    {['home', 'about', 'experience', 'portfolio', 'blog', 'contact'].map((section) => (
+                    {['home', 'about', 'portfolio', 'experience', 'blog', 'contact'].map((section) => (
                         <li key={section}>
                             <a
                                 href={`#${section}`}

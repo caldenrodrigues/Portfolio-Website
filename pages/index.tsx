@@ -11,13 +11,13 @@ const Index: React.FC = () => {
             <main className={styles.main}>
                 <Home />
                 <About />
-                <section id="experience" className={styles.section}>
-                    <h2>Experience</h2>
-                    <p>Details about my professional experience.</p>
-                </section>
                 <section id="portfolio" className={styles.section}>
                     <h2>Portfolio</h2>
                     <p>Some of my projects.</p>
+                </section>
+                <section id="experience" className={styles.section}>
+                    <h2>Experience</h2>
+                    <p>Details about my professional experience.</p>
                 </section>
                 <section id="blog" className={styles.section}>
                     <h2>Blog</h2>

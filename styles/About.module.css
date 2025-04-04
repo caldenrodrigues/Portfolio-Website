@@ -1,17 +1,22 @@
 .aboutSection {
     position: relative;
     width: 100%;
-    height: 100vh; /* Ensure the section takes the full viewport height */
     margin-top: 0; /* Remove the margin to eliminate the gap */
     overflow: hidden;
+    padding-top: 0; /* Optional: Adjust padding if needed */
 }
 
 .video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; /* Ensure the video fills the width of the section */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the video behaves like a block element */
+    margin: 0 auto; /* Center the video horizontally */
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 768px) {
+    .video {
+        width: 100%; /* Ensure the video fills the width on smaller screens */
+        height: auto; /* Maintain aspect ratio */
+    }
 }

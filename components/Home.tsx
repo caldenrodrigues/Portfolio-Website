@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagramSquare, faLinkedin, faGoodreads, faBehanceSquare} from '@fortawesome/free-brands-svg-icons';
-import { faPaperPlane, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPenNib } from '@fortawesome/free-solid-svg-icons';
 
 const roles = ["Copywriter", "Storyteller", "Chai Loyalist", "Cat Lover", "Bookworm", "Dreamer"];
 
@@ -115,10 +115,9 @@ const Home: React.FC = () => {
                     <h1 className={styles.name}>Maria</h1>
                     <h2 className={`${styles.role} ${animate ? styles.animate : ''}`}>{currentRole}</h2>
                     <div className={styles.buttons}>
-                        <a href="#contact" className={styles.button}>
-                            <FontAwesomeIcon icon={faPaperPlane} className={styles.icon} /> Say Hello
+                        <a href="#about" className={styles.button}>
+                            <FontAwesomeIcon icon={faPenNib} className={styles.icon} /> About Me
                         </a>
-                        <a href="#about" className={styles.aboutLink}>About Me</a>
                     </div>
                 </div>
                 <div className={styles.image} style={imageStyle}>
