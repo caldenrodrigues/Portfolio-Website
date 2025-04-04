@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from '../components/Header';
 import Home from '../components/Home';
-import styles from '../styles/Home.module.css';
 import About from '../components/About';
+import Portfolio from '../components/Portfolio';
+import styles from '../styles/Home.module.css';
 
 const Index: React.FC = () => {
     return (
@@ -11,10 +12,7 @@ const Index: React.FC = () => {
             <main className={styles.main}>
                 <Home />
                 <About />
-                <section id="portfolio" className={styles.section}>
-                    <h2>Portfolio</h2>
-                    <p>Some of my projects.</p>
-                </section>
+                <Portfolio />
                 <section id="experience" className={styles.section}>
                     <h2>Experience</h2>
                     <p>Details about my professional experience.</p>

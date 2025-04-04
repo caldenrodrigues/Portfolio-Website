@@ -1,0 +1,75 @@
+.portfolioSection {
+    position: relative;
+    padding: 4rem 2rem;
+    background-color: var(--color-gray);
+    color: var(--color-white);
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.grid.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gridItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gridItem:hover {
+    transform: scale(1.05);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+
+.gridItem:hover .image {
+    filter: blur(4px);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gridItem:hover .overlay {
+    opacity: 1;
+}
+
+.workTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-white);
+    text-align: center;
+}
