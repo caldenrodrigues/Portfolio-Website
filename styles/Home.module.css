@@ -90,6 +90,10 @@
 }
 
 .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 1rem;
   margin-top: 2rem;
 }
 
@@ -97,9 +101,51 @@
   background-color: var(--color-primary);
   color: var(--color-white);
   padding: 1rem 2rem;
-  margin-right: 1rem;
   text-decoration: none;
   border-radius: 5px;
+  font-size: 1.25rem;
+  text-align: center;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Add spacing between icon and text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.aboutLink {
+  color: var(--color-white);
+  margin: 1rem 2rem;
+  text-decoration: none;
+  font-size: 1.25rem;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.aboutLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.aboutLink:hover {
+  color: var(--color-primary);
+}
+
+.aboutLink:hover::after {
+  width: 100%;
 }
 
 .image {
@@ -190,5 +236,16 @@
 
   .box1, .box2, .box3, .box4 {
     display: none;
+  }
+
+  .buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center the buttons */
+    gap: 1rem; /* Add spacing between stacked buttons */
+  }
+
+  .button {
+    width: 90%; /* Make buttons take up most of the screen width */
+    font-size: 0.9rem; /* Slightly smaller font size for mobile */
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Home from '../components/Home';
 import styles from '../styles/Home.module.css';
+import About from '../components/About';
 
 const Index: React.FC = () => {
     return (
@@ -9,11 +10,7 @@ const Index: React.FC = () => {
             <Header />
             <main className={styles.main}>
                 <Home />
-                <section id="about" className={styles.section}>
-                    <h2>About</h2>
-                    <p>Information about me.</p>
-                    <p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p><p>Information about me.</p>
-                </section>
+                <About />
                 <section id="experience" className={styles.section}>
                     <h2>Experience</h2>
                     <p>Details about my professional experience.</p>

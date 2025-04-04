@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faInstagram, faLinkedin, faGoodreads } from '@fortawesome/free-brands-svg-icons';
+import { faInstagramSquare, faLinkedin, faGoodreads, faBehanceSquare} from '@fortawesome/free-brands-svg-icons';
+import { faPaperPlane, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 const roles = ["Copywriter", "Storyteller", "Chai Loyalist", "Cat Lover", "Bookworm", "Dreamer"];
 
@@ -95,10 +96,13 @@ const Home: React.FC = () => {
                     <FontAwesomeIcon icon={faLinkedin} />
                 </a>
                 <a href="https://www.instagram.com/the.literary_omnivore/" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faInstagram} />
+                    <FontAwesomeIcon icon={faInstagramSquare} />
                 </a>
                 <a href="https://www.goodreads.com/user/show/113591784-maria-noronha" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faGoodreads} />
+                </a>
+                <a href="https://www.behance.net/marianoronha1" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faBehanceSquare} />
                 </a>
             </div>
             <div className={styles.content}>
@@ -107,8 +111,10 @@ const Home: React.FC = () => {
                     <h1 className={styles.name}>Maria</h1>
                     <h2 className={`${styles.role} ${animate ? styles.animate : ''}`}>{currentRole}</h2>
                     <div className={styles.buttons}>
-                        <a href="#contact" className={styles.button}>Say Hello</a>
-                        <a href="#about" className={styles.button}>About Me</a>
+                        <a href="#contact" className={styles.button}>
+                            <FontAwesomeIcon icon={faPaperPlane} className={styles.icon} /> Say Hello
+                        </a>
+                        <a href="#about" className={styles.aboutLink}>About Me</a>
                     </div>
                 </div>
                 <div className={styles.image} style={imageStyle}>
