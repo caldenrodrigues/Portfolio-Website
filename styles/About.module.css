@@ -1,8 +1,8 @@
 .aboutSection {
     position: relative;
     width: 100%;
-    height: calc(100vh - 80px); /* Adjust height to account for the header (80px is the header height) */
-    margin-top: 80px; /* Push the section below the header */
+    height: 100vh; /* Ensure the section takes the full viewport height */
+    margin-top: 0; /* Remove the margin to eliminate the gap */
     overflow: hidden;
 }
 

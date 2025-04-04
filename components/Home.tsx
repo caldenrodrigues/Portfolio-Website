@@ -64,13 +64,17 @@ const Home: React.FC = () => {
     const handleScroll = () => {
         const aboutSection = document.getElementById('about');
         if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
+            const offsetTop = aboutSection.offsetTop; // Get the exact top position of the About section
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth',
+            });
         }
     };
 
     useEffect(() => {
         let scrollTimeout: NodeJS.Timeout;
-
+    
         const onScroll = (e: WheelEvent) => {
             // Check if the user is at the top of the page and scrolling down
             if (window.scrollY === 0 && e.deltaY > 0) {
@@ -80,7 +84,7 @@ const Home: React.FC = () => {
                 }, 350); // Adjust the debounce delay as needed
             }
         };
-
+    
         window.addEventListener('wheel', onScroll, { passive: false });
         return () => window.removeEventListener('wheel', onScroll);
     }, []);
