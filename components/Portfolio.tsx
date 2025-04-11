@@ -8,12 +8,12 @@ const portfolioItems = [
     { id: 4, title: 'Project Four', image: '/portfolio4.png' },
     { id: 5, title: 'Project Five', image: '/portfolio5.png' },
     { id: 6, title: 'Project Six', image: '/portfolio6.png' },
-    { id: 7, title: 'Project Seven', image: '/portfolio7.png' },
-    { id: 8, title: 'Project Eight', image: '/portfolio8.png' },
-    { id: 9, title: 'Project Nine', image: '/portfolio9.png' },
-    { id: 10, title: 'Project Ten', image: '/portfolio10.png' },
-    { id: 11, title: 'Project Eleven', image: '/portfolio11.png' },
-    { id: 12, title: 'Project Twelve', image: '/portfolio12.png' },
+    { id: 7, title: 'Project Seven', image: '/portfolio6.png' },
+    { id: 8, title: 'Project Eight', image: '/portfolio5.png' },
+    { id: 9, title: 'Project Nine', image: '/portfolio4.png' },
+    { id: 10, title: 'Project Ten', image: '/portfolio3.png' },
+    { id: 11, title: 'Project Eleven', image: '/portfolio2.png' },
+    { id: 12, title: 'Project Twelve', image: '/portfolio1.png' },
 ];
 
 const itemsPerPage = 6; // Number of items to show per grid (2 rows x 3 items)

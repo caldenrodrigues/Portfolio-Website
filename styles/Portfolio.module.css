@@ -37,30 +37,36 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     opacity: 0; /* Start hidden */
     transform: translateY(30px); /* Start slightly below */
-    animation: fadeInUp 0.5s ease forwards; /* Apply animation */
+    animation: fadeInUp 0.5s ease forwards; 
 }
 
-.gridItem:nth-child(1) {
+.gridItem.animate1 {
+    animation: fadeInUp 0.5s ease forwards;
     animation-delay: 0.1s;
 }
 
-.gridItem:nth-child(2) {
+.gridItem.animate2 {
+    animation: fadeInUp 0.5s ease forwards;
     animation-delay: 0.2s;
 }
 
-.gridItem:nth-child(3) {
+.gridItem.animate3 {
+    animation: fadeInUp 0.5s ease forwards;
     animation-delay: 0.3s;
 }
 
-.gridItem:nth-child(4) {
+.gridItem.animate4 {
+    animation: fadeInUp 0.5s ease forwards;
     animation-delay: 0.4s;
 }
 
-.gridItem:nth-child(5) {
+.gridItem.animate5 {
+    animation: fadeInUp 0.5s ease forwards;
     animation-delay: 0.5s;
 }
 
-.gridItem:nth-child(6) {
+.gridItem.animate6 {
+    animation: fadeInUp 0.5s ease forwards;
     animation-delay: 0.6s;
 }
 
