@@ -34,7 +34,7 @@ const Portfolio: React.FC = () => {
                     setIsVisible(false);
                 }
             },
-            { threshold: 0.3 }
+            { threshold: 0.1 } // Lower threshold for earlier animation
         );
 
         if (portfolioRef.current) {

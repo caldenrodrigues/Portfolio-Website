@@ -40,7 +40,11 @@
         grid-template-columns: 1fr; /* Single column layout */
         grid-template-rows: auto; /* Adjust rows automatically */
         width: 100%; /* Full width */
-        gap: 1rem; /* Smaller gap between items */
+        gap: 1.5rem; /* Slightly larger gap for better spacing */
+    }
+
+    .gridItem {
+        margin-bottom: 1rem; /* Add spacing between items */
     }
 
     .arrowLeft,
