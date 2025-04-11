@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from '../styles/Portfolio.module.css';
 
 const portfolioItems = [
@@ -8,18 +8,39 @@ const portfolioItems = [
     { id: 4, title: 'Project Four', image: '/portfolio4.png' },
     { id: 5, title: 'Project Five', image: '/portfolio5.png' },
     { id: 6, title: 'Project Six', image: '/portfolio6.png' },
-    { id: 7, title: 'Project One', image: '/portfolio6.png' },
-    { id: 8, title: 'Project Two', image: '/portfolio5.png' },
-    { id: 9, title: 'Project Three', image: '/portfolio4.png' },
-    { id: 10, title: 'Project Four', image: '/portfolio3.png' },
-    { id: 11, title: 'Project Five', image: '/portfolio2.png' },
-    { id: 12, title: 'Project Six', image: '/portfolio1.png' },
+    { id: 7, title: 'Project Seven', image: '/portfolio7.png' },
+    { id: 8, title: 'Project Eight', image: '/portfolio8.png' },
+    { id: 9, title: 'Project Nine', image: '/portfolio9.png' },
+    { id: 10, title: 'Project Ten', image: '/portfolio10.png' },
+    { id: 11, title: 'Project Eleven', image: '/portfolio11.png' },
+    { id: 12, title: 'Project Twelve', image: '/portfolio12.png' },
 ];
 
-const itemsPerPage = 6; // Number of items to show per grid
+const itemsPerPage = 6; // Number of items to show per grid (2 rows x 3 items)
 
 const Portfolio: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(0);
+    const [isVisible, setIsVisible] = useState(false);
+    const portfolioRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting); // Update visibility state based on intersection
+            },
+            { threshold: 0.3 }
+        );
+
+        if (portfolioRef.current) {
+            observer.observe(portfolioRef.current);
+        }
+
+        return () => {
+            if (portfolioRef.current) {
+                observer.unobserve(portfolioRef.current);
+            }
+        };
+    }, []);
 
     const totalPages = Math.ceil(portfolioItems.length / itemsPerPage);
 
@@ -35,15 +56,22 @@ const Portfolio: React.FC = () => {
     const currentItems = portfolioItems.slice(startIndex, startIndex + itemsPerPage);
 
     return (
-        <section id="portfolio" className={styles.portfolioSection}>
+        <section
+            id="portfolio"
+            className={styles.portfolioSection}
+            ref={portfolioRef}
+        >
             <h2 className={styles.title}>Portfolio</h2>
             <div className={styles.carousel}>
                 <button className={styles.arrowLeft} onClick={handlePrev}>
                     &#8249;
                 </button>
                 <div className={styles.grid}>
-                    {currentItems.map((item) => (
-                        <div key={item.id} className={styles.gridItem}>
+                    {currentItems.map((item, index) => (
+                        <div
+                            key={item.id}
+                            className={`${styles.gridItem} ${isVisible ? styles[`animate${index + 1}`] : ''}`}
+                        >
                             <img src={item.image} alt={item.title} className={styles.image} />
                             <div className={styles.overlay}>
                                 <span className={styles.workTitle}>{item.title}</span>
