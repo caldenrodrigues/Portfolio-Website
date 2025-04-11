@@ -3,27 +3,29 @@
     padding: 4rem 2rem;
     background-color: var(--color-gray);
     color: var(--color-white);
+    text-align: center;
 }
 
 .title {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 2rem;
-    text-align: left;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
     gap: 1.5rem;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.grid.visible {
-    opacity: 1;
-    transform: translateY(0);
+    width: 80%;
+    transition: transform 0.5s ease;
 }
 
 .gridItem {
@@ -68,8 +70,41 @@
 }
 
 .workTitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--color-white);
     text-align: center;
+}
+
+.arrowLeft,
+.arrowRight {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.arrowLeft {
+    left: 10px;
+}
+
+.arrowRight {
+    right: 10px;
+}
+
+.arrowLeft:hover,
+.arrowRight:hover {
+    background-color: var(--color-primary-dark);
 }
