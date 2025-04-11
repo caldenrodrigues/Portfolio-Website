@@ -57,6 +57,21 @@
     opacity: 0; /* Start hidden */
     transform: translateY(30px); /* Start slightly below */
     animation: fadeInUp 0.5s ease forwards; /* Apply animation */
+    animation-fill-mode: forwards; /* Ensure the final state is retained */
+}
+
+.gridItem img {
+    opacity: 0; /* Ensure the image is hidden initially */
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+.gridItem.animate1 img,
+.gridItem.animate2 img,
+.gridItem.animate3 img,
+.gridItem.animate4 img,
+.gridItem.animate5 img,
+.gridItem.animate6 img {
+    opacity: 1; /* Make the image visible during animation */
 }
 
 .gridItem:nth-child(1) {

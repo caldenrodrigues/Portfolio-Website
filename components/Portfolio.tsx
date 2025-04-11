@@ -21,12 +21,18 @@ const itemsPerPage = 6; // Number of items to show per grid (2 rows x 3 items)
 const Portfolio: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
+    const [animationKey, setAnimationKey] = useState(0); // Key to force reflow
     const portfolioRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setIsVisible(entry.isIntersecting); // Update visibility state based on intersection
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    setAnimationKey((prevKey) => prevKey + 1); // Increment key to force reflow
+                } else {
+                    setIsVisible(false);
+                }
             },
             { threshold: 0.3 }
         );
@@ -69,7 +75,7 @@ const Portfolio: React.FC = () => {
                 <div className={styles.grid}>
                     {currentItems.map((item, index) => (
                         <div
-                            key={item.id}
+                            key={`${item.id}-${animationKey}`} // Use animationKey to force reflow
                             className={`${styles.gridItem} ${isVisible ? styles[`animate${index + 1}`] : ''}`}
                         >
                             <img src={item.image} alt={item.title} className={styles.image} />
