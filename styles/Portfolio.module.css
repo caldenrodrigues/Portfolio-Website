@@ -30,6 +30,25 @@
     transition: transform 0.5s ease;
 }
 
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .carousel {
+        display: block; /* Remove carousel behavior */
+    }
+
+    .grid {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: auto; /* Adjust rows automatically */
+        width: 100%; /* Full width */
+        gap: 1rem; /* Smaller gap between items */
+    }
+
+    .arrowLeft,
+    .arrowRight {
+        display: none; /* Hide navigation arrows */
+    }
+}
+
 .gridItem {
     position: relative;
     overflow: hidden;
@@ -37,36 +56,30 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     opacity: 0; /* Start hidden */
     transform: translateY(30px); /* Start slightly below */
-    animation: fadeInUp 0.5s ease forwards; 
+    animation: fadeInUp 0.5s ease forwards; /* Apply animation */
 }
 
-.gridItem.animate1 {
-    animation: fadeInUp 0.5s ease forwards;
+.gridItem:nth-child(1) {
     animation-delay: 0.1s;
 }
 
-.gridItem.animate2 {
-    animation: fadeInUp 0.5s ease forwards;
+.gridItem:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-.gridItem.animate3 {
-    animation: fadeInUp 0.5s ease forwards;
+.gridItem:nth-child(3) {
     animation-delay: 0.3s;
 }
 
-.gridItem.animate4 {
-    animation: fadeInUp 0.5s ease forwards;
+.gridItem:nth-child(4) {
     animation-delay: 0.4s;
 }
 
-.gridItem.animate5 {
-    animation: fadeInUp 0.5s ease forwards;
+.gridItem:nth-child(5) {
     animation-delay: 0.5s;
 }
 
-.gridItem.animate6 {
-    animation: fadeInUp 0.5s ease forwards;
+.gridItem:nth-child(6) {
     animation-delay: 0.6s;
 }
 
