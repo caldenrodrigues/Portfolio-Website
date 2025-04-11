@@ -45,7 +45,7 @@
 
     .arrowLeft,
     .arrowRight {
-        display: none; /* Hide navigation arrows */
+        display: none !important; /* Force hiding the arrows */
     }
 }
 
