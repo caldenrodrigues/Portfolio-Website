@@ -11,63 +11,36 @@
     text-align: left;
 }
 
-.timelineWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+.timelineGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 2rem;
+    align-items: start;
 }
 
-.sectionGroup {
-    margin-bottom: 2rem;
+.timelineCell {
+    min-width: 0;
 }
 
-.sectionLabel {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-.timeline {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0;
-    position: relative;
-}
-
-.timelineItemWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1 1 200px;
-    min-width: 200px;
-    position: relative;
-}
-
-.timelineItem {
+.timelineItemLeft,
+.timelineItemRight {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
-    position: relative;
-    min-width: 200px;
-    max-width: 320px;
     background: #232323;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     padding: 1.2rem 1.5rem;
-    z-index: 2;
-    transition: box-shadow 0.2s;
+    margin-bottom: 1rem;
+    position: relative;
 }
 
-.timelineItem.left {
-    align-self: flex-start;
-    margin-right: auto;
+.timelineItemLeft {
+    justify-content: flex-start;
 }
 
-.timelineItem.right {
-    align-self: flex-end;
-    margin-left: auto;
+.timelineItemRight {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
 }
 
 .node {
@@ -75,7 +48,7 @@
     height: 18px;
     background: var(--color-primary);
     border-radius: 50%;
-    margin-right: 1.2rem;
+    margin: 0 1.2rem;
     flex-shrink: 0;
     box-shadow: 0 0 0 4px rgba(234,67,66,0.15);
 }
@@ -95,26 +68,15 @@
     color: #e0e0e0;
 }
 
-.connector {
-    height: 60px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    z-index: 1;
-}
-
 @media (max-width: 900px) {
-    .timeline {
-        flex-direction: column;
+    .timelineGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem 0;
     }
-    .timelineItem.left,
-    .timelineItem.right {
-        align-self: stretch;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .connector {
+    .timelineItemLeft,
+    .timelineItemRight {
         justify-content: flex-start;
+        flex-direction: row;
     }
 }
 
