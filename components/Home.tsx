@@ -91,6 +91,7 @@ const Home: React.FC = () => {
 
     return (
         <section id="home" className={styles.home}>
+            
             <div className={styles.box1} style={box1Style}></div>
             <div className={styles.box2} style={box2Style}></div>
             <div className={styles.box3} style={box3Style}></div>

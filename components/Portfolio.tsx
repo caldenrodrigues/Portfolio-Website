@@ -1,40 +1,45 @@
 import React, { useEffect, useState, useRef } from 'react';
+import Papa from 'papaparse';
 import styles from '../styles/Portfolio.module.css';
 
-const portfolioItems = [
-    { id: 1, title: 'Project One', image: '/portfolio1.png' },
-    { id: 2, title: 'Project Two', image: '/portfolio2.png' },
-    { id: 3, title: 'Project Three', image: '/portfolio3.png' },
-    { id: 4, title: 'Project Four', image: '/portfolio4.png' },
-    { id: 5, title: 'Project Five', image: '/portfolio5.png' },
-    { id: 6, title: 'Project Six', image: '/portfolio6.png' },
-    { id: 7, title: 'Project Seven', image: '/portfolio6.png' },
-    { id: 8, title: 'Project Eight', image: '/portfolio5.png' },
-    { id: 9, title: 'Project Nine', image: '/portfolio4.png' },
-    { id: 10, title: 'Project Ten', image: '/portfolio3.png' },
-    { id: 11, title: 'Project Eleven', image: '/portfolio2.png' },
-    { id: 12, title: 'Project Twelve', image: '/portfolio1.png' },
-];
+type PortfolioItem = {
+    id: string;
+    title: string;
+    image: string;
+    pdf: string;
+};
 
-const itemsPerPage = 6; // Number of items to show per grid (2 rows x 3 items)
+const itemsPerPage = 6;
 
 const Portfolio: React.FC = () => {
+    const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([]);
     const [currentPage, setCurrentPage] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
-    const [animationKey, setAnimationKey] = useState(0); // Key to force reflow
+    const [animationKey, setAnimationKey] = useState(0);
+    const [popupPdf, setPopupPdf] = useState<string | null>(null);
     const portfolioRef = useRef<HTMLDivElement>(null);
+
+    // Fetch and parse CSV
+    useEffect(() => {
+        fetch('/portfolio/portfolio_content.csv')
+            .then(res => res.text())
+            .then(text => {
+                const result = Papa.parse<PortfolioItem>(text, { header: true });
+                setPortfolioItems(result.data.filter(item => item.id && item.title));
+            });
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    setAnimationKey((prevKey) => prevKey + 1); // Increment key to force reflow
+                    setAnimationKey((prevKey) => prevKey + 1);
                 } else {
                     setIsVisible(false);
                 }
             },
-            { threshold: 0.1 } // Lower threshold for earlier animation
+            { threshold: 0.1 }
         );
 
         if (portfolioRef.current) {
@@ -47,6 +52,15 @@ const Portfolio: React.FC = () => {
             }
         };
     }, []);
+
+    useEffect(() => {
+        if (!popupPdf) return;
+        const handleEsc = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setPopupPdf(null);
+        };
+        window.addEventListener('keydown', handleEsc);
+        return () => window.removeEventListener('keydown', handleEsc);
+    }, [popupPdf]);
 
     const totalPages = Math.ceil(portfolioItems.length / itemsPerPage);
 
@@ -75,8 +89,10 @@ const Portfolio: React.FC = () => {
                 <div className={styles.grid}>
                     {currentItems.map((item, index) => (
                         <div
-                            key={`${item.id}-${animationKey}`} // Use animationKey to force reflow
+                            key={`${item.id}-${animationKey}`}
                             className={`${styles.gridItem} ${isVisible ? styles[`animate${index + 1}`] : ''}`}
+                            onClick={() => setPopupPdf(item.pdf)}
+                            style={{ cursor: 'pointer' }}
                         >
                             <img src={item.image} alt={item.title} className={styles.image} />
                             <div className={styles.overlay}>
@@ -89,6 +105,20 @@ const Portfolio: React.FC = () => {
                     &#8250;
                 </button>
             </div>
+            {popupPdf && (
+                <div className={styles.popupOverlay} onClick={() => setPopupPdf(null)}>
+                    <div className={styles.popupContent} onClick={e => e.stopPropagation()}>
+                        <button className={styles.closeButton} onClick={() => setPopupPdf(null)}>×</button>
+                        <iframe
+                            src={`${popupPdf}#toolbar=0&navpanes=0&scrollbar=0`}
+                            title="PDF Viewer"
+                            width="100%"
+                            height="600px"
+                            style={{ border: 'none' }}
+                        />
+                    </div>
+                </div>
+            )}
         </section>
     );
 };

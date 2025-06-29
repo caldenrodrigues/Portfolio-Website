@@ -2,6 +2,15 @@
 
 This is a portfolio website built with React and Next.js. It showcases projects, skills, and provides a way for potential clients or employers to learn more about the developer.
 
+## Pending Items list
+### Must Have
+
+### Good to Have
+- Update the pointer with something cool
+
+### Could Have
+- Make the entire website Configurable (Colors, Images, Text, Resources)
+
 ## Project Structure
 
 ```
