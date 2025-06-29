@@ -4,6 +4,8 @@ This is a portfolio website built with React and Next.js. It showcases projects,
 
 ## Pending Items list
 ### Must Have
+- Fix the Navigation height
+- Fix the next/previous buttons in the Portfolio
 
 ### Good to Have
 - Update the pointer with something cool

@@ -11,6 +11,12 @@ type PortfolioItem = {
 
 const itemsPerPage = 6;
 
+// Utility to detect mobile devices
+function isMobileDevice() {
+    if (typeof window === 'undefined') return false;
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent);
+}
+
 const Portfolio: React.FC = () => {
     const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([]);
     const [currentPage, setCurrentPage] = useState(0);
@@ -91,7 +97,13 @@ const Portfolio: React.FC = () => {
                         <div
                             key={`${item.id}-${animationKey}`}
                             className={`${styles.gridItem} ${isVisible ? styles[`animate${index + 1}`] : ''}`}
-                            onClick={() => setPopupPdf(item.pdf)}
+                            onClick={() => {
+                                if (isMobileDevice()) {
+                                    window.open(item.pdf, '_blank');
+                                } else {
+                                    setPopupPdf(item.pdf);
+                                }
+                            }}
                             style={{ cursor: 'pointer' }}
                         >
                             <img src={item.image} alt={item.title} className={styles.image} />
@@ -105,7 +117,7 @@ const Portfolio: React.FC = () => {
                     &#8250;
                 </button>
             </div>
-            {popupPdf && (
+            {popupPdf && !isMobileDevice() && (
                 <div className={styles.popupOverlay} onClick={() => setPopupPdf(null)}>
                     <div className={styles.popupContent} onClick={e => e.stopPropagation()}>
                         <button className={styles.closeButton} onClick={() => setPopupPdf(null)}>×</button>
