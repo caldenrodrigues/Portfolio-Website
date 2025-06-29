@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Home from '../components/Home';
 import About from '../components/About';
 import Portfolio from '../components/Portfolio';
+import Experience from '../components/Experience';
 import styles from '../styles/Home.module.css';
 
 const Index: React.FC = () => {
@@ -13,10 +14,7 @@ const Index: React.FC = () => {
                 <Home />
                 <About />
                 <Portfolio />
-                <section id="experience" className={styles.section}>
-                    <h2>Experience</h2>
-                    <p>Details about my professional experience.</p>
-                </section>
+                <Experience />
                 <section id="blog" className={styles.section}>
                     <h2>Blog</h2>
                     <p>My blog posts.</p>
