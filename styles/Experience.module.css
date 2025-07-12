@@ -14,12 +14,18 @@
 .timelineGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem 2rem;
+    gap: 4.5rem 3.5rem;       /* Increased vertical and horizontal spacing */
     align-items: start;
+    justify-content: center;      /* Center the grid horizontally */
+    margin-left: auto;            /* Equal margin left */
+    margin-right: auto;           /* Equal margin right */
+    max-width: 900px;             /* Optional: set a max width for the whole trail */
 }
 
 .timelineCell {
     min-width: 0;
+    display: flex;
+    justify-content: center; /* Center the node horizontally in the cell */
 }
 
 .timelineItemLeft,
@@ -43,6 +49,23 @@
     flex-direction: row-reverse;
 }
 
+.timelineNode {
+    display: flex;
+    align-items: center;      /* Center icon and text vertically */
+    justify-content: center;  /* Center icon and text horizontally */
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 2.5rem;    /* Increased vertical spacing between nodes */
+    transition: none;
+    min-height: 0;
+    gap: 1.2rem;
+    max-width: 320px;         /* Reduced max width of each node */
+    width: 100%;
+    text-align: left;         /* Keep text left-aligned inside the node */
+}
+
 .node {
     width: 18px;
     height: 18px;
@@ -53,14 +76,30 @@
     box-shadow: 0 0 0 4px rgba(234,67,66,0.15);
 }
 
+.nodeIcon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.nodeContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .content {
     text-align: left;
 }
 
 .itemTitle {
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 0.2rem;
+    color: var(--color-white);
 }
 
 .itemDesc {
@@ -68,15 +107,45 @@
     color: #e0e0e0;
 }
 
+.creativeTrailTitleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    gap: 1.2rem;
+}
+
+.creativeTrailTitle {
+    font-family: var(--font-secondary);
+    font-size: 2.8rem;
+    text-align: center;
+    color: var(--color-white);
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.icon {
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.trailOffset {
+    transform: translateY(2.5rem) scale(1.03); /* 2.5rem is the vertical offset, adjust as needed */
+    transition: transform 0.3s;
+}
+
 @media (max-width: 900px) {
     .timelineGrid {
         grid-template-columns: 1fr;
         gap: 1.5rem 0;
     }
-    .timelineItemLeft,
-    .timelineItemRight {
-        justify-content: flex-start;
-        flex-direction: row;
+    .timelineNode {
+        padding: 1rem;
+        min-width: 0;
+        max-width: 100%;
     }
 }
 
@@ -91,5 +160,11 @@
     }
     .sectionLabel {
         font-size: 1.1rem;
+    }
+    .creativeTrailTitle {
+        font-size: 2rem;
+    }
+    .icon {
+        font-size: 1.5rem;
     }
 }
