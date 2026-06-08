@@ -2,7 +2,7 @@
 
 This is a portfolio website built with React and Next.js. It showcases projects, skills, and provides a way for potential clients or employers to learn more about the developer.
 
-## Pending Items list
+## Pending Items listt
 ### Must Have
 - Fix the Navigation height
 - Fix the next/previous buttons in the Portfolio
