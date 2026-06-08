@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagramSquare, faLinkedin, faGoodreads, faBehanceSquare} from '@fortawesome/free-brands-svg-icons';
 import { faPenNib } from '@fortawesome/free-solid-svg-icons';
 
-const roles = ["Copywriter", "Storyteller", "Chai Loyalist", "Cat Lover", "Bookworm", "Dreamer"];
+const roles = ["Copywriter1", "Storyteller1", "Chai Loyalist1", "Cat Lover1", "Bookworm1", "Dreamer1"];
 
 const Home: React.FC = () => {
     const [currentRole, setCurrentRole] = useState<string>(roles[0]);
